@@ -1,0 +1,5 @@
+#COMPOST Project File
+input.path=../../src/;../../lib/retrotranslator_mod_for_recoder.jar;../../lib/asm-all-3.3.jar
+output.path=output
+units=all
+java5=true

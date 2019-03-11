@@ -1,0 +1,9 @@
+// The source of X.class
+import java.util.List;
+
+public class X {
+	 @javax.xml.bind.annotation.XmlElements(value={@javax.xml.bind.annotation.XmlElement(name="Text",
+	            namespace="aNameSpace",
+	            type=java.lang.Object.class)})
+	 List l;
+}

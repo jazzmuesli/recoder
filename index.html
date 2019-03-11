@@ -1,0 +1,237 @@
+<HTML><HEAD>
+<TITLE>RECODER Homepage</TITLE>
+<LINK REL=stylesheet TYPE="text/css" HREF="doc/recoder.css">
+</HEAD><BODY>
+
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="6" CELLSPACING="0">
+<TR><TD ALIGN="center" VALIGN="middle" CLASS="title" WIDTH="75%">
+<SPAN STYLE="font-weight:bold;font-family:AvantGarde,Arial;font-variant:small-caps;"><SPAN STYLE="font-size:48pt;">R</SPAN><SPAN STYLE="font-size:40pt;">ECODE</SPAN><SPAN STYLE="font-size:48pt;">R</SPAN></SPAN>
+<BR>
+<A HREF="http://recoder.sourceforge.net" TARGET="_top">recoder.sourceforge.net</A>
+<P CLASS="title">
+<A HREF="http://sourceforge.net/projects/recoder" TARGET="_top">sourceforge.net/projects/recoder</A>
+</P>
+<P CLASS="title">
+<A href="http://sourceforge.net"> <IMG
+src="http://sourceforge.net/sflogo.php?group_id=28173"
+width="88" height="31" border="0" alt="SourceForge Logo"></A>
+</P>
+<P CLASS="title">
+<A HREF="doc/download.html#latest">Version 0.85</A> released April 09, 2008.
+</P>
+</TD>
+<TD VALIGN="middle" CLASS="title">
+<P CLASS="title"><A HREF="index.html">Home</A></P>
+<P CLASS="title"><A HREF="doc/manual.html">Technical Manual</A></P>
+<P CLASS="title"><A HREF="doc/api/index.html">API Documentation</A></P>
+<P CLASS="title"><A HREF="doc/examples.html">Examples</A></P>
+<P CLASS="title"><A HREF="doc/faqs.html">FAQs</A></P>
+<P CLASS="title"><A HREF="doc/download.html">Download</A></P>
+<P CLASS="title"><A HREF="doc/links.html">Links</A></P>
+</TD>
+</TR></TABLE>
+
+<P>
+<A NAME="about"><H2>About</H2></A>
+</P>
+
+<p>
+RECODER is a Java framework for source code metaprogramming aimed to
+deliver a sophisticated infrastructure for many kinds of Java analysis
+and transformation tools.
+</p>
+
+<H3>Starters' Tour</H3>
+<IMG SRC="doc/images/screenshot.jpg" HSPACE="10" ALIGN="right">
+<P>
+For a quick impression of RECODER's abilities, first browse a
+<A HREF="doc/examples/converter-html/index.html" TARGET="_blank">generated HTML view</A>
+of a small code example taken from Sun's tutorial, pretty printed and
+annotated by RECODER. Note how well the syntactic structure is preserved.
+You may also inspect the
+<A HREF="doc/examples/src/application/XReferenceHTMLGenerator.java" TARGET="_blank">source of
+the generator application</A>.
+</P>
+<P>
+RECODER also allows to <EM>transform</EM> code. Another
+<A HREF="doc/examples/src/application/Obfuscate.java" TARGET="_blank">toy program</A>
+illustrates this. When applied to the example program, this obfuscator
+produces a very interesting
+<A HREF="doc/examples/converter-obfuscated-html/index.html" TARGET="_blank">result</A>.
+Note that the modified program compiles and behaves as before.
+</P>
+<P>
+These were just two of the <A HREF="doc/examples.html">example programs</A>.
+If you are interested, feel free to <A HREF="doc/download.html">download</A>
+a public release and run the examples on your machine - the screenshot
+on the right shows a graphical demo application.
+</P>
+<BR CLEAR="both">
+
+<H3>Features and Possibilities</H3>
+
+<P>
+The following table gives a
+short description of the different layers of RECODER features as well as
+the application perspectives that these layers offer:
+</P>
+<P>
+<EM>Parsing and unparsing of Java sources</EM>
+</P>
+<BLOCKQUOTE>
+In addition to abstract model elements, RECODER also supports a highly
+detailed syntactic model - no information is lost. Comments and
+formatting information are retained. The pretty printer is
+customizable and will be able to reproduce the code (possibly
+improving upon it, but retaining given code structures) and to embed
+new code seamlessly.
+<P>
+<I>Possible applications:</I>
+Simple preprocessors, simple code generators,
+source code beautification tools
+</P>
+</BLOCKQUOTE>
+<P>
+<EM>Name and type analysis for Java programs</EM>
+</P>
+<BLOCKQUOTE>
+<P>
+RECODER can infer types of expressions, evaluate compile-time constants,
+resolve all kinds of references and maintain cross reference information.
+</P>
+<P>
+<I>Possible applications:</I>
+Software visualization tools, software metrics,
+Lint-like semantic problem detection tools, design problem detection tools
+(anti-patterns), cross-referencing tools
+</P>
+</BLOCKQUOTE>
+<P>
+<IMG SRC="doc/images/MetaprogrammingCycle-small.png" HSPACE="10" ALIGN="right">
+<EM>Transformation of Java sources</EM>
+</P>
+<BLOCKQUOTE>
+<P>
+RECODER contains a library of small analyses, code snippet generators
+and frequently used transformations.
+</P>
+<P>
+<I>Possible applications:</I>
+Preprocessors for language extensions, semantic macros,
+aspect weavers, source code obfuscation tools, compilers
+</P>
+</BLOCKQUOTE>
+<P>
+<EM>Incremental analysis and transformation of Java sources</EM>
+</P>
+<BLOCKQUOTE>
+<P>
+Transformations change the underlaying program model; for incremental and
+iterative use, this model has to be updated accordingly.
+Transformations have to take care of dependencies by updating their
+local data and setting back matching positions when necessary;
+however, RECODER will analyze change impacts for its model and perform
+updates automatically.
+</P>
+<P>
+<I>Possible applications:</I>
+Source code optimization, refactoring tool,
+software migration programs (Smart Patches),
+design pattern, clich&eacute;s and idiom synthesis,
+architectural connector synthesis,
+adaptive programming environments,
+invasive software composition
+</P>
+</BLOCKQUOTE>
+<BR CLEAR="all">
+
+<!--
+Success stories...
+- COMPOST, InjectJ, Metrics, Refactoring tools;
+- studies: visitor pattern creation, abstract factory creation, ...
+-->
+
+
+<H3>Restrictions</H3>
+<P>
+You can do marvellous things, but you cannot expect miracles.
+A complete automation of software changes is far beyond todays
+possibilities: In general, it is not possible to do reasonable design
+decisions automatically, such as the choice of a fitting name for a
+globally visible entity. Also, in general it is not possible to
+analyze the behavior of <EM>reflective</EM> programs (analyzing reflection
+requires value analysis which is computable in "easy" cases only). Therefore,
+no guarantees can be given that the observable behavior of reflective
+programs will be retained. Reflective programs are evil in that respect.
+</P>
+<P>
+RECODER is already useful but it also still needs polishing.
+The <A HREF="http://sourceforge.net/tracker/?group_id=28173&atid=392685">bug tracker</A> contains the currently known issues and the
+<A HREF="http://sourceforge.net/tracker/?atid=392688&group_id=28173">feature
+requests</A> tracker collects nice-to have features.
+</P>
+
+<p><a NAME="contact"></a>
+
+<h3>History</h3>
+<IMG SRC="doc/images/UniLogo.gif" HSPACE="10" ALIGN="right">
+<P>
+Development of COMPOST, the COMPOsition SysTem, started in 1998
+following an idea of Uwe Aßmann. The core system was developped by
+Andreas Ludwig as part of his PhD thesis, with a lot of help and
+support from Uwe Aßmann and co-author Rainer Neumann at the <A
+HREF="http://i44w3.info.uni-karlsruhe.de">software engineering and compiler
+construction group</A> of Prof. Dr. Goos at the University of
+Karlsruhe.  Since then, the number of users grew rapidly, mostly in
+the "academic neighborhood".  In 2001, the core system of COMPOST was
+made available separately as "RECODER" for a broader range of users.
+</P>
+<BR CLEAR="all">
+
+<h2>The Team</h2>
+
+<P>
+RECODER development has recently moved to <a href="http://www.msi.vxu.se">V&auml;xj&ouml; Universitet</a>. 
+It was initially developed at the <A HREF="http://i44w3.info.uni-karlsruhe.de">University of Karlsruhe</a>
+(Universität Karlsruhe) and 
+<a href="http://www.fzi.de/prost/eng/index.html">FZI Forschungszentrum Informatik Karlsruhe</a>, Germany.
+Post your questions, critics, suggestions, reports, comments, requests, hints, and ideas to the forums
+at <a href="http://sourceforge.net/projects/recoder">sourceforge.net/projects/recoder</a> or send an e-mail to the staff members.
+</P>
+<H3>Current Developers and Project Administrators</H3>
+<p>
+<a href="mailto:tobias.gutzmann@msi.vxu.se">Tobias Gutzmann</a> [TG] (developer, admin)
+</p>
+<P>
+<a href="mailto:dirk.heuzeroth@dirk-heuzeroth.de">Dr. Dirk Heuzeroth</a> [DH] (admin)
+</p>
+<p>
+<a href="mailto:mircea.trifu@fzi.de">Mircea Trifu</a> [MT] (admin)
+</P>
+
+<H3>Initiator and Chief Developer (retired)</H3>
+<P>
+Dr. Andreas Ludwig [AL]
+</P>
+
+<H3>Contributors</H3>
+<p>
+<a href="mailto:Rainer.Neumann@gmx.de">Dr. Rainer Neumann</a> [RN],
+<a href="mailto:Uwe.Assmann@ida.liu.se">Prof. Dr. Uwe A&szlig;mann</a> [UA]
+from the <A HREF="http://i44w3.info.uni-karlsruhe.de">University of Karlsruhe</A>
+</P>
+<P>
+Jerker Hammarberg [JH],
+Jens Nordberg [JN],
+Andreas Sj&ouml;stedt [AS],
+<a href="mailto:uwehoffmann@netscape.com">Uwe Hoffmann</a> [UH],
+<a href="mailto:ada@majorek.org">Aldona Majorek</a> [AM],
+Volker Kuttruff [VK],
+Philipp R&uuml;mmer [PR],
+Steffen Schlager [SS],
+Richard Bubel [RB],
+Bernhard Haumacher [BH]
+</p>
+</body>
+</html>
+
