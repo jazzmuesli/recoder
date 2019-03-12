@@ -281,7 +281,8 @@ public class Retrotranslator {
                 "Verifying " + container.getFileCount() + " file(s) in " + container + "."));
         int warningCount = 0;
         int fileCount = 0;
-        for (final FileEntry entry : container.getEntries()) {
+        Collection<? extends FileEntry> entries = container.getEntries();
+		for (final FileEntry entry : entries) {
             if (sourceMask.matches(entry.getName()) && (!lazy || entry.isModified())) {
                 byte[] content = entry.getContent();
                 if (TransformerTools.isClassFile(content)) {
