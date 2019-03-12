@@ -1,0 +1,22 @@
+NEW
+====
+Model "VoidType" explicitly
+
+General
+=======
+There are 2 ways of computing member types - getMemberType() / computeAllMemberTypes() - check that!!!!
+
+GENERAL:
+o	- ReflectionImport (Annotations & Enums)
+o	- TypeDeclaration.getMemberParent() - may also be method declaration now !!
+o	- SourceInfo/Sourcerer/Annotations: Annotations are implemented as Expressions; how handle getType(Expression) in DefaultSourceInfo ?
+
+Enums
+o	- in switch/case, enum constant name must not be qualified (we allow that currently)
+
+Generics
+o	- do what if type args present but in URQ not toTypeReference, but something else? Exception?
+o	- DefaultSourceInfo.getType(MethodReference) => TypeArgument(Info|Declaration)-resolving needs to be split up (?)
+
+Java5To4
+========
